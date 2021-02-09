@@ -8,8 +8,5 @@ import org.springframework.context.annotation.Scope;
 
 @Mapper(config = MapperConfig.class)
 @Scope("singleton")
-public interface RuleNameMapper {
-    RuleName toRuleName(RuleNameEntity userEntity);
-
-    RuleNameEntity fromRuleName(RuleName userEntity);
+public interface RuleNameMapper extends CrudMapper<RuleName, RuleNameEntity> {
 }

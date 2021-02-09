@@ -8,8 +8,5 @@ import org.springframework.context.annotation.Scope;
 
 @Mapper(config = MapperConfig.class)
 @Scope("singleton")
-public interface RatingMapper {
-    Rating toRating(RatingEntity userEntity);
-
-    RatingEntity fromRating(Rating userEntity);
+public interface RatingMapper extends CrudMapper<Rating, RatingEntity> {
 }

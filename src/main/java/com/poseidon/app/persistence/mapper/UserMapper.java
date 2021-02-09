@@ -8,8 +8,5 @@ import org.springframework.context.annotation.Scope;
 
 @Mapper(config = MapperConfig.class)
 @Scope("singleton")
-public interface UserMapper {
-    User toUser(UserEntity userEntity);
-
-    UserEntity fromUser(User userEntity);
+public interface UserMapper extends CrudMapper<User, UserEntity> {
 }

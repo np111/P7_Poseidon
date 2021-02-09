@@ -8,8 +8,5 @@ import org.springframework.context.annotation.Scope;
 
 @Mapper(config = MapperConfig.class)
 @Scope("singleton")
-public interface CurvePointMapper {
-    CurvePoint toCurvePoint(CurvePointEntity userEntity);
-
-    CurvePointEntity fromCurvePoint(CurvePoint userEntity);
+public interface CurvePointMapper extends CrudMapper<CurvePoint, CurvePointEntity> {
 }

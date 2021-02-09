@@ -8,8 +8,5 @@ import org.springframework.context.annotation.Scope;
 
 @Mapper(config = MapperConfig.class)
 @Scope("singleton")
-public interface BidListMapper {
-    BidList toBidList(BidListEntity userEntity);
-
-    BidListEntity fromBidList(BidList userEntity);
+public interface BidListMapper extends CrudMapper<BidList, BidListEntity> {
 }

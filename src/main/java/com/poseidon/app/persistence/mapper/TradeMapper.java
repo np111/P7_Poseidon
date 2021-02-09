@@ -8,8 +8,5 @@ import org.springframework.context.annotation.Scope;
 
 @Mapper(config = MapperConfig.class)
 @Scope("singleton")
-public interface TradeMapper {
-    Trade toTrade(TradeEntity userEntity);
-
-    TradeEntity fromTrade(Trade userEntity);
+public interface TradeMapper extends CrudMapper<Trade, TradeEntity> {
 }

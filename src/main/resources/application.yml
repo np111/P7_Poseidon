@@ -1,0 +1,21 @@
+---
+server:
+  port: '${SERVER_PORT:8081}'
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: 'update'
+    show-sql: false
+    open-in-view: false
+  datasource:
+    url: 'jdbc:mariadb://${MYSQL_HOST:localhost}:${MYSQL_PORT:22937}/${MYSQL_DATABASE:poseidon}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC'
+    username: '${MYSQL_USERNAME:poseidon}'
+    password: '${MYSQL_PASSWORD:poseidon}'
+
+logging:
+  level:
+    org.springframework: INFO
+    # Disable useless hibernate warnings
+    org.hibernate.engine.jdbc.spi.SqlExceptionHelper: FATAL
+    org.hibernate.persister.entity: ERROR

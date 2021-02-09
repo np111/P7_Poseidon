@@ -1,4 +1,4 @@
-package com.poseidon.app.controllers;
+package com.poseidon.app.controller;
 
 import com.poseidon.app.persistence.entity.CurvePointEntity;
 import javax.validation.Valid;

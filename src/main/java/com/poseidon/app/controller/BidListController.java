@@ -1,4 +1,4 @@
-package com.poseidon.app.controllers;
+package com.poseidon.app.controller;
 
 import com.poseidon.app.persistence.entity.BidListEntity;
 import javax.validation.Valid;

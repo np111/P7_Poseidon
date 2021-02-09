@@ -1,4 +1,4 @@
-package com.poseidon.app.controller;
+package com.poseidon.app.http.controller;
 
 import com.poseidon.app.model.User;
 import com.poseidon.app.service.UserService;

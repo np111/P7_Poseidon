@@ -1,4 +1,4 @@
-package com.poseidon.app.controller;
+package com.poseidon.app.http.controller;
 
 import com.poseidon.app.model.Rating;
 import com.poseidon.app.service.RatingService;

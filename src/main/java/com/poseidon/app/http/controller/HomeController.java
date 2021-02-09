@@ -1,4 +1,4 @@
-package com.poseidon.app.controller;
+package com.poseidon.app.http.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

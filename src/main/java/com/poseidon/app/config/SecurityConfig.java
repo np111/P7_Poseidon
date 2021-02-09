@@ -19,8 +19,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/css/**", "/static/**", "/favicon.ico").permitAll()
+                .antMatchers("/", "/login", "/app/error", "/app-logout", "/user/**").permitAll()
                 .antMatchers("/bidList/**", "/curvePoint/**", "/rating/**", "/ruleName/**", "/trade/**").hasAnyAuthority("ADMIN", "USER")
-                .antMatchers("/", "/css/**", "/login", "/app/error", "/app-logout", "/user/**").permitAll()
                 .anyRequest().denyAll()
                 .and().formLogin().defaultSuccessUrl("/bidList/list")
                 .and().logout().logoutUrl("/app-logout").logoutSuccessUrl("/")

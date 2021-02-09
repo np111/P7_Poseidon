@@ -1,7 +1,11 @@
 package com.poseidon.app.controller;
 
-import com.poseidon.app.persistence.entity.RatingEntity;
+import com.poseidon.app.model.Rating;
+import com.poseidon.app.service.RatingService;
 import javax.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,43 +14,55 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Controller
+@Scope("singleton")
 public class RatingController {
-    // TODO: Inject Rating service
+    private final RatingService ratingService;
 
     @RequestMapping("/rating/list")
     public String home(Model model) {
-        // TODO: find all Rating, add to model
+        model.addAttribute("ratings", ratingService.list());
         return "rating/list";
     }
 
     @GetMapping("/rating/add")
-    public String addRatingForm(RatingEntity rating) {
+    public String addRating(Rating rating) {
         return "rating/add";
     }
 
     @PostMapping("/rating/validate")
-    public String validate(@Valid RatingEntity rating, BindingResult result, Model model) {
-        // TODO: check data valid and save to db, after saving return Rating list
-        return "rating/add";
+    public String validate(@Valid Rating rating, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "rating/add";
+        }
+
+        ratingService.create(rating);
+        model.addAttribute("ratings", ratingService.list());
+        return "redirect:/rating/list";
     }
 
     @GetMapping("/rating/update/{id}")
-    public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        // TODO: get Rating by Id and to model then show to the form
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("rating", ratingService.read(id));
         return "rating/update";
     }
 
     @PostMapping("/rating/update/{id}")
-    public String updateRating(@PathVariable("id") Integer id, @Valid RatingEntity rating,
-            BindingResult result, Model model) {
-        // TODO: check required fields, if valid call service to update Rating and return Rating list
+    public String updateRating(@PathVariable("id") Long id, @Valid Rating rating, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "rating/update";
+        }
+
+        ratingService.update(id, rating);
+        model.addAttribute("ratings", ratingService.list());
         return "redirect:/rating/list";
     }
 
     @GetMapping("/rating/delete/{id}")
-    public String deleteRating(@PathVariable("id") Integer id, Model model) {
-        // TODO: Find Rating by Id and delete the Rating, return to Rating list
+    public String deleteRating(@PathVariable("id") Long id, Model model) {
+        ratingService.delete(id);
+        model.addAttribute("ratings", ratingService.list());
         return "redirect:/rating/list";
     }
 }

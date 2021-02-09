@@ -1,13 +1,14 @@
 package com.poseidon.app;
 
-import com.poseidon.app.domain.BidList;
-import com.poseidon.app.repositories.BidListRepository;
+import com.poseidon.app.persistence.entity.BidListEntity;
+import com.poseidon.app.persistence.repository.BidListRepository;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,11 +21,11 @@ public class BidTests {
 
     @Test
     public void bidListTest() {
-        BidList bid = new BidList("Account Test", "Type Test", 10d);
+        BidListEntity bid = new BidListEntity("Account Test", "Type Test", 10d);
 
         // Save
         bid = bidListRepository.save(bid);
-        assertNotNull(bid.getBidListId());
+        assertNotNull(bid.getId());
         assertEquals(bid.getBidQuantity(), 10d, 10d);
 
         // Update
@@ -33,13 +34,13 @@ public class BidTests {
         assertEquals(bid.getBidQuantity(), 20d, 20d);
 
         // Find
-        List<BidList> listResult = bidListRepository.findAll();
+        List<BidListEntity> listResult = bidListRepository.findAll();
         assertTrue(listResult.size() > 0);
 
         // Delete
-        Integer id = bid.getBidListId();
+        Long id = bid.getId();
         bidListRepository.delete(bid);
-        Optional<BidList> bidList = bidListRepository.findById(id);
+        Optional<BidListEntity> bidList = bidListRepository.findById(id);
         assertFalse(bidList.isPresent());
     }
 }

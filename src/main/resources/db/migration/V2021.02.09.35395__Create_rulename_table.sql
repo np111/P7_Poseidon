@@ -1,11 +1,11 @@
 CREATE TABLE `rulename` (
-  `id` TINYINT(4) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(125),
-  `description` VARCHAR(125),
-  `json` VARCHAR(125),
-  `template` VARCHAR(512),
-  `sqlStr` VARCHAR(125),
-  `sqlPart` VARCHAR(125),
+  `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(125) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` NOT NULL,
+  `description` VARCHAR(125) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` NOT NULL,
+  `json` VARCHAR(125) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` NOT NULL,
+  `template` VARCHAR(512) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` NOT NULL,
+  `sqlStr` VARCHAR(125) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` NOT NULL,
+  `sqlPart` VARCHAR(125) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` NOT NULL,
 
   PRIMARY KEY (`id`)
 )

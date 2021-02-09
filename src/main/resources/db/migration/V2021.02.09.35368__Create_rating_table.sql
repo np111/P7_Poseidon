@@ -1,9 +1,9 @@
 CREATE TABLE `rating` (
-  `id` TINYINT(4) NOT NULL AUTO_INCREMENT,
-  `moodysRating` VARCHAR(125),
-  `sandPRating` VARCHAR(125),
-  `fitchRating` VARCHAR(125),
-  `orderNumber` TINYINT,
+  `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `moodysRating` VARCHAR(125) CHARACTER SET `ascii` COLLATE `ascii_bin` NOT NULL,
+  `sandPRating` VARCHAR(125) CHARACTER SET `ascii` COLLATE `ascii_bin` NOT NULL,
+  `fitchRating` VARCHAR(125) CHARACTER SET `ascii` COLLATE `ascii_bin` NOT NULL,
+  `orderNumber` TINYINT NOT NULL DEFAULT 0,
 
   PRIMARY KEY (`id`)
-)
+) ENGINE = InnoDB DEFAULT CHARSET = `utf8mb4` ROW_FORMAT = COMPACT;

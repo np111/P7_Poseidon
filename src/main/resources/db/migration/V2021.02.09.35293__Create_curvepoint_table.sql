@@ -1,10 +1,10 @@
 CREATE TABLE `curvepoint` (
-  `id` TINYINT(4) NOT NULL AUTO_INCREMENT,
-  `curveId` TINYINT,
-  `asOfDate` TIMESTAMP,
-  `term` DOUBLE,
-  `value` DOUBLE,
-  `creationDate` TIMESTAMP,
+  `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `curveId` BIGINT(20) UNSIGNED NOT NULL,
+  `asOfDate` DATETIME,
+  `term` DOUBLE NOT NULL,
+  `value` DOUBLE NOT NULL,
+  `creationDate` DATETIME NOT NULL DEFAULT current_timestamp(),
 
   PRIMARY KEY (`id`)
-)
+) ENGINE = InnoDB DEFAULT CHARSET = `utf8mb4` ROW_FORMAT = COMPACT;

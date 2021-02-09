@@ -1,45 +1,45 @@
 package com.poseidon.app;
 
-import com.poseidon.app.domain.Trade;
-import com.poseidon.app.repositories.TradeRepository;
+import com.poseidon.app.persistence.entity.TradeEntity;
+import com.poseidon.app.persistence.repository.TradeRepository;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class TradeTests {
-
     @Autowired
     private TradeRepository tradeRepository;
 
     @Test
     public void tradeTest() {
-        Trade trade = new Trade("Trade Account", "Type");
+        TradeEntity trade = new TradeEntity("Trade Account", "Type");
 
         // Save
         trade = tradeRepository.save(trade);
-        assertNotNull(trade.getTradeId());
-        assertTrue(trade.getAccount().equals("Trade Account"));
+        assertNotNull(trade.getId());
+        assertEquals(trade.getAccount(), "Trade Account");
 
         // Update
         trade.setAccount("Trade Account Update");
         trade = tradeRepository.save(trade);
-        assertTrue(trade.getAccount().equals("Trade Account Update"));
+        assertEquals(trade.getAccount(), "Trade Account Update");
 
         // Find
-        List<Trade> listResult = tradeRepository.findAll();
+        List<TradeEntity> listResult = tradeRepository.findAll();
         assertTrue(listResult.size() > 0);
 
         // Delete
-        Integer id = trade.getTradeId();
+        Long id = trade.getId();
         tradeRepository.delete(trade);
-        Optional<Trade> tradeList = tradeRepository.findById(id);
+        Optional<TradeEntity> tradeList = tradeRepository.findById(id);
         assertFalse(tradeList.isPresent());
     }
 }

@@ -1,13 +1,14 @@
 package com.poseidon.app;
 
-import com.poseidon.app.domain.CurvePoint;
-import com.poseidon.app.repositories.CurvePointRepository;
+import com.poseidon.app.persistence.entity.CurvePointEntity;
+import com.poseidon.app.persistence.repository.CurvePointRepository;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,26 +21,26 @@ public class CurvePointTests {
 
     @Test
     public void curvePointTest() {
-        CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);
+        CurvePointEntity curvePoint = new CurvePointEntity(10L, 10d, 30d);
 
         // Save
         curvePoint = curvePointRepository.save(curvePoint);
         assertNotNull(curvePoint.getId());
-        assertTrue(curvePoint.getCurveId() == 10);
+        assertEquals(curvePoint.getCurveId(), 10L);
 
         // Update
-        curvePoint.setCurveId(20);
+        curvePoint.setCurveId(20L);
         curvePoint = curvePointRepository.save(curvePoint);
-        assertTrue(curvePoint.getCurveId() == 20);
+        assertEquals(curvePoint.getCurveId(), 20L);
 
         // Find
-        List<CurvePoint> listResult = curvePointRepository.findAll();
+        List<CurvePointEntity> listResult = curvePointRepository.findAll();
         assertTrue(listResult.size() > 0);
 
         // Delete
-        Integer id = curvePoint.getId();
+        Long id = curvePoint.getId();
         curvePointRepository.delete(curvePoint);
-        Optional<CurvePoint> curvePointList = curvePointRepository.findById(id);
+        Optional<CurvePointEntity> curvePointList = curvePointRepository.findById(id);
         assertFalse(curvePointList.isPresent());
     }
 

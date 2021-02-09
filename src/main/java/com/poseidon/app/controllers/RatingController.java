@@ -1,6 +1,6 @@
 package com.poseidon.app.controllers;
 
-import com.poseidon.app.domain.Rating;
+import com.poseidon.app.persistence.entity.RatingEntity;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +21,12 @@ public class RatingController {
     }
 
     @GetMapping("/rating/add")
-    public String addRatingForm(Rating rating) {
+    public String addRatingForm(RatingEntity rating) {
         return "rating/add";
     }
 
     @PostMapping("/rating/validate")
-    public String validate(@Valid Rating rating, BindingResult result, Model model) {
+    public String validate(@Valid RatingEntity rating, BindingResult result, Model model) {
         // TODO: check data valid and save to db, after saving return Rating list
         return "rating/add";
     }
@@ -38,7 +38,7 @@ public class RatingController {
     }
 
     @PostMapping("/rating/update/{id}")
-    public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
+    public String updateRating(@PathVariable("id") Integer id, @Valid RatingEntity rating,
             BindingResult result, Model model) {
         // TODO: check required fields, if valid call service to update Rating and return Rating list
         return "redirect:/rating/list";

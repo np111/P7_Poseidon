@@ -14,6 +14,12 @@ public abstract class CrudService<Model, Entity, Id> {
 
     protected abstract void setModelId(Model model, Id id);
 
+    protected void prepareCreate(Model newModel) {
+    }
+
+    protected void prepareUpdate(Model newModel, Entity currentEntity) {
+    }
+
     @Transactional(readOnly = true)
     public List<Model> list() {
         return getRepository().findAll().stream().map(getMapper()::toModel).collect(Collectors.toList());
@@ -30,6 +36,8 @@ public abstract class CrudService<Model, Entity, Id> {
 
     @Transactional
     public Model create(Model model) {
+        setModelId(model, null);
+        prepareCreate(model);
         Entity entity = getMapper().fromModel(model);
         getRepository().save(entity);
         return getMapper().toModel(entity);
@@ -42,6 +50,7 @@ public abstract class CrudService<Model, Entity, Id> {
             throw new EntityNotFoundException(id);
         }
         setModelId(model, id);
+        prepareUpdate(model, entity);
         getMapper().fromModel(entity, model);
         getRepository().save(entity);
         return getMapper().toModel(entity);

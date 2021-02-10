@@ -1,6 +1,9 @@
 package com.poseidon.app.model;
 
 import java.time.ZonedDateTime;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,9 +16,17 @@ import lombok.NoArgsConstructor;
 @Data
 public class BidList {
     private Long id;
+
+    @NotBlank(message = "Account is mandatory")
     private String account;
+
+    @NotBlank(message = "Type is mandatory")
     private String type;
+
+    @NotNull(message = "Bid Quantity is mandatory")
+    @DecimalMin(value = "0", inclusive = false, message = "Bid Quantity must be positive")
     private Double bidQuantity;
+
     private Double askQuantity;
     private Double bid;
     private Double ask;

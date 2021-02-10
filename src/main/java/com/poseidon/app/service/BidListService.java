@@ -4,6 +4,7 @@ import com.poseidon.app.model.BidList;
 import com.poseidon.app.persistence.entity.BidListEntity;
 import com.poseidon.app.persistence.mapper.BidListMapper;
 import com.poseidon.app.persistence.repository.BidListRepository;
+import java.time.ZonedDateTime;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,15 @@ public class BidListService extends CrudService<BidList, BidListEntity, Long> {
     @Override
     protected void setModelId(BidList user, Long id) {
         user.setId(id);
+    }
+
+    @Override
+    protected void prepareCreate(BidList newModel) {
+        newModel.setCreationDate(ZonedDateTime.now());
+    }
+
+    @Override
+    protected void prepareUpdate(BidList newModel, BidListEntity currentEntity) {
+        newModel.setCreationDate(currentEntity.getCreationDate());
     }
 }

@@ -4,6 +4,7 @@ import com.poseidon.app.model.Trade;
 import com.poseidon.app.persistence.entity.TradeEntity;
 import com.poseidon.app.persistence.mapper.TradeMapper;
 import com.poseidon.app.persistence.repository.TradeRepository;
+import java.time.ZonedDateTime;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,15 @@ public class TradeService extends CrudService<Trade, TradeEntity, Long> {
     @Override
     protected void setModelId(Trade user, Long id) {
         user.setId(id);
+    }
+
+    @Override
+    protected void prepareCreate(Trade newModel) {
+        newModel.setCreationDate(ZonedDateTime.now());
+    }
+
+    @Override
+    protected void prepareUpdate(Trade newModel, TradeEntity currentEntity) {
+        newModel.setCreationDate(currentEntity.getCreationDate());
     }
 }

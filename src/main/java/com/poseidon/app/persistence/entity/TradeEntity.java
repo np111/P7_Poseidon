@@ -15,12 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class TradeEntity {
-    public TradeEntity(String account, String type) {
-        this.account = account;
-        this.type = type;
-        this.creationDate = ZonedDateTime.now();
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

@@ -4,10 +4,13 @@ import com.poseidon.app.persistence.mapper.CrudMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.Getter;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 public abstract class CrudService<Model, Entity, Id> {
+    private static final Sort SORT_ID_ASC = Sort.by("id").ascending();
+
     protected abstract JpaRepository<Entity, Id> getRepository();
 
     protected abstract CrudMapper<Model, Entity> getMapper();
@@ -22,7 +25,7 @@ public abstract class CrudService<Model, Entity, Id> {
 
     @Transactional(readOnly = true)
     public List<Model> list() {
-        return getRepository().findAll().stream().map(getMapper()::toModel).collect(Collectors.toList());
+        return getRepository().findAll(SORT_ID_ASC).stream().map(getMapper()::toModel).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)

@@ -4,7 +4,6 @@ import com.poseidon.app.model.CurvePoint;
 import com.poseidon.app.persistence.entity.CurvePointEntity;
 import com.poseidon.app.persistence.mapper.CurvePointMapper;
 import com.poseidon.app.persistence.repository.CurvePointRepository;
-import java.time.ZonedDateTime;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class CurvePointService extends CrudService<CurvePoint, CurvePointEntity, Long> {
     private final @Getter CurvePointRepository repository;
     private final @Getter CurvePointMapper mapper;
+    private final TimeService timeService;
 
     @Override
     protected void setModelId(CurvePoint user, Long id) {
@@ -25,7 +25,7 @@ public class CurvePointService extends CrudService<CurvePoint, CurvePointEntity,
 
     @Override
     protected void prepareCreate(CurvePoint newModel) {
-        newModel.setCreationDate(ZonedDateTime.now());
+        newModel.setCreationDate(timeService.nowSecs());
     }
 
     @Override

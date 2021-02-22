@@ -14,13 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class RatingEntity {
-    public RatingEntity(String moodysRating, String sandPRating, String fitchRating, Byte orderNumber) {
-        this.moodysRating = moodysRating;
-        this.sandPRating = sandPRating;
-        this.fitchRating = fitchRating;
-        this.orderNumber = orderNumber;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

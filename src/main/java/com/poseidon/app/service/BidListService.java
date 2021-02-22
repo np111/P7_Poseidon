@@ -4,7 +4,6 @@ import com.poseidon.app.model.BidList;
 import com.poseidon.app.persistence.entity.BidListEntity;
 import com.poseidon.app.persistence.mapper.BidListMapper;
 import com.poseidon.app.persistence.repository.BidListRepository;
-import java.time.ZonedDateTime;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class BidListService extends CrudService<BidList, BidListEntity, Long> {
     private final @Getter BidListRepository repository;
     private final @Getter BidListMapper mapper;
+    private final TimeService timeService;
 
     @Override
     protected void setModelId(BidList user, Long id) {
@@ -25,7 +25,7 @@ public class BidListService extends CrudService<BidList, BidListEntity, Long> {
 
     @Override
     protected void prepareCreate(BidList newModel) {
-        newModel.setCreationDate(ZonedDateTime.now());
+        newModel.setCreationDate(timeService.nowSecs());
     }
 
     @Override

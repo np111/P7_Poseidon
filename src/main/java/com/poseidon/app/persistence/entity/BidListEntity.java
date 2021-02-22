@@ -15,13 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class BidListEntity {
-    public BidListEntity(String account, String type, Double bidQuantity) {
-        this.account = account;
-        this.type = type;
-        this.bidQuantity = bidQuantity;
-        this.creationDate = ZonedDateTime.now();
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

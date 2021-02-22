@@ -15,13 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CurvePointEntity {
-    public CurvePointEntity(Long curveId, Double term, Double value) {
-        this.curveId = curveId;
-        this.term = term;
-        this.value = value;
-        this.creationDate = ZonedDateTime.now();
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

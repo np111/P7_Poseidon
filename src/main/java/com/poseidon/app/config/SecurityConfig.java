@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -15,6 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired(required = false)
+    private CsrfTokenRepository csrfTokenRepository;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -29,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .maximumSessions(3);
+        http.csrf().csrfTokenRepository(csrfTokenRepository == null ? new CookieCsrfTokenRepository() : csrfTokenRepository);
     }
 
     @Autowired

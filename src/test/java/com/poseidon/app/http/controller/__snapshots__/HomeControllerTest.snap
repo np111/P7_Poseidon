@@ -1,0 +1,41 @@
+com.poseidon.app.http.controller.HomeControllerTest.adminHome=[
+-
+> GET /admin/home
+< HTTP 302
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Location: http://localhost/login
+""
+]
+
+
+com.poseidon.app.http.controller.HomeControllerTest.home=[
+-
+> GET /
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <title> Spring Boot </title>"
+"  <link rel=\"stylesheet\" href=\"/css/styles.css\"/>"
+"</head>"
+"<body>"
+"<h3> HOME PAGE </h3>"
+"<p>"
+"  <a href=\"/login\">Login</a> or create one <a href=\"/user/list\">User management</a>"
+"</p>"
+"</body>"
+"</html>"
+]

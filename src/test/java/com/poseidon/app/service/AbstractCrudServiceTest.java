@@ -52,6 +52,12 @@ public abstract class AbstractCrudServiceTest<Service extends CrudService<Model,
         assertEquals(idClass, modelGetIdMethod.getReturnType());
     }
 
+    @SuppressWarnings("unchecked")
+    @SneakyThrows
+    private ID getModelId(Model model) {
+        return (ID) modelGetIdMethod.invoke(model);
+    }
+
     @Override
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
         this.service = ctx.getBean(serviceClass);
@@ -192,12 +198,6 @@ public abstract class AbstractCrudServiceTest<Service extends CrudService<Model,
         } catch (EntityNotFoundException ex) {
             assertEquals(notFoundId, ex.getEntityId());
         }
-    }
-
-    @SuppressWarnings("unchecked")
-    @SneakyThrows
-    private ID getModelId(Model model) {
-        return (ID) modelGetIdMethod.invoke(model);
     }
 
     @SuppressWarnings("unchecked")

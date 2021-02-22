@@ -1,0 +1,464 @@
+com.poseidon.app.http.controller.UserControllerTest.add=[
+-
+> GET /user/add
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+""
+"  <div class=\"row\">"
+"    <h2>Add New User</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/user/validate\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"fullname\" class=\"col-sm-2 control-label\">Full Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"fullname\" placeholder=\"Full Name\" class=\"col-4\" name=\"fullname\" value=\"\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"username\" class=\"col-sm-2 control-label\">User Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"username\" placeholder=\"User Name\" class=\"col-4\" name=\"username\" value=\"\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Password</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"password\" id=\"password\" placeholder=\"Password\" class=\"col-4\" name=\"password\" value=\"\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Role</label>"
+"        <div class=\"col-sm-10\">"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"ADMIN\" id=\"role1\" name=\"role\">Admin</label>"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"USER\" id=\"role2\" name=\"role\">User</label>"
+"          "
+"        </div>"
+"      </div>"
+""
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/user/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Add user\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+]
+
+
+com.poseidon.app.http.controller.UserControllerTest.delete=[
+-
+> GET /user/delete/1
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <title>Spring Boot</title>"
+"</head>"
+"<body>"
+"<h3>Not Found Exception</h3>"
+"<div>"
+"  Logged in user: <b class=\"user\"> test-username </b>"
+"  <form action=\"/app-logout\" method=\"POST\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"    <input type=\"submit\" value=\"Logout\"/>"
+"  </form>"
+"</div>"
+"<p class=\"error\">Entity not found.</p>"
+"</body>"
+"</html>"
+-
+> GET /user/delete/32402
+< HTTP 302
+< Content-Language: en
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Location: /user/list
+""
+]
+
+
+com.poseidon.app.http.controller.UserControllerTest.list=[
+-
+> GET /user/list
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" type=\"text/css\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+"  <div class=\"row\">"
+"    <div class=\"col-6\">"
+""
+"    </div>"
+"    <div class=\"col-6 text-right\">"
+"      <a href=\"/\">Home</a>&nbsp;|&nbsp;<a href=\"/login\">Login</a>"
+"    </div>"
+"  </div>"
+"  <div class=\"row\"><h2>User List</h2></div>"
+"  <div class=\"row\">"
+"    <a href=\"/user/add\" class=\"btn btn-primary btn-sm\">Add New</a>"
+"    <table class=\"table table-bordered\">"
+"      <thead>"
+"      <tr>"
+"        <th>Id</th>"
+"        <th>Full Name</th>"
+"        <th>User Name</th>"
+"        <th>Role</th>"
+"        <th>Action</th>"
+"      </tr>"
+"      </thead>"
+"      <tbody>"
+"      <tr>"
+"        <td style=\"width: 10%\">1</td>"
+"        <td>fullname</td>"
+"        <td>username</td>"
+"        <td style=\"width: 25%\">USER</td>"
+"        <td style=\"width: 15%\" class=\"text-center\">"
+"          <a href=\"/user/update/1\">Edit</a>&nbsp;|&nbsp;"
+"          <a href=\"/user/delete/1\">Delete</a>"
+"        </td>"
+"      </tr>"
+"      <tr>"
+"        <td style=\"width: 10%\">32402</td>"
+"        <td>yJnkKqFBtY</td>"
+"        <td>xyuwd3sbk9</td>"
+"        <td style=\"width: 25%\">ADMIN</td>"
+"        <td style=\"width: 15%\" class=\"text-center\">"
+"          <a href=\"/user/update/32402\">Edit</a>&nbsp;|&nbsp;"
+"          <a href=\"/user/delete/32402\">Delete</a>"
+"        </td>"
+"      </tr>"
+"      </tbody>"
+"    </table>"
+"  </div>"
+"</div>"
+"</body>"
+"</html>"
+]
+
+
+com.poseidon.app.http.controller.UserControllerTest.showUpdate=[
+-
+> GET /user/update/1
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <title>Spring Boot</title>"
+"</head>"
+"<body>"
+"<h3>Not Found Exception</h3>"
+"<div>"
+"  Logged in user: <b class=\"user\"> test-username </b>"
+"  <form action=\"/app-logout\" method=\"POST\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"    <input type=\"submit\" value=\"Logout\"/>"
+"  </form>"
+"</div>"
+"<p class=\"error\">Entity not found.</p>"
+"</body>"
+"</html>"
+-
+> GET /user/update/32402
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+""
+"  <div class=\"row\">"
+"    <h2>Update User</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/user/update/32402\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"fullname\" class=\"col-sm-2 control-label\">Full Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"fullname\" placeholder=\"Full Name\" class=\"col-4\" name=\"fullname\" value=\"yJnkKqFBtY\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"username\" class=\"col-sm-2 control-label\">User Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"username\" placeholder=\"User Name\" class=\"col-4\" name=\"username\" value=\"xyuwd3sbk9\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Password</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"password\" id=\"password\" placeholder=\"Password\" class=\"col-4\" name=\"password\" value=\"\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Role</label>"
+"        <div class=\"col-sm-10\">"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"ADMIN\" id=\"role1\" name=\"role\" checked=\"checked\">Admin</label>"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"USER\" id=\"role2\" name=\"role\">User</label>"
+"        </div>"
+"      </div>"
+""
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <input type=\"hidden\" id=\"id\" name=\"id\" value=\"32402\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/user/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Update user\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+]
+
+
+com.poseidon.app.http.controller.UserControllerTest.update=[
+-
+> POST /user/update/1
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+""
+"  <div class=\"row\">"
+"    <h2>Update User</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/user/update/1\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"fullname\" class=\"col-sm-2 control-label\">Full Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"fullname\" placeholder=\"Full Name\" class=\"col-4\" name=\"fullname\" value=\"\">"
+"          <p class=\"text-danger\">Full Name is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"username\" class=\"col-sm-2 control-label\">User Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"username\" placeholder=\"User Name\" class=\"col-4\" name=\"username\" value=\"\">"
+"          <p class=\"text-danger\">Username is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Password</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"password\" id=\"password\" placeholder=\"Password\" class=\"col-4\" name=\"password\" value=\"\">"
+"          <p class=\"text-danger\">Password is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Role</label>"
+"        <div class=\"col-sm-10\">"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"ADMIN\" id=\"role1\" name=\"role\">Admin</label>"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"USER\" id=\"role2\" name=\"role\">User</label>"
+"        </div>"
+"      </div>"
+""
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <input type=\"hidden\" id=\"id\" name=\"id\" value=\"1\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/user/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Update user\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+-
+> POST /user/update/1
+< HTTP 302
+< Content-Language: en
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Location: /user/list
+""
+]
+
+
+com.poseidon.app.http.controller.UserControllerTest.validate=[
+-
+> POST /user/validate
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+""
+"  <div class=\"row\">"
+"    <h2>Add New User</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/user/validate\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"fullname\" class=\"col-sm-2 control-label\">Full Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"fullname\" placeholder=\"Full Name\" class=\"col-4\" name=\"fullname\" value=\"\">"
+"          <p class=\"text-danger\">Full Name is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"username\" class=\"col-sm-2 control-label\">User Name</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"username\" placeholder=\"User Name\" class=\"col-4\" name=\"username\" value=\"\">"
+"          <p class=\"text-danger\">Username is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Password</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"password\" id=\"password\" placeholder=\"Password\" class=\"col-4\" name=\"password\" value=\"\">"
+"          <p class=\"text-danger\">Password is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"password\" class=\"col-sm-2 control-label\">Role</label>"
+"        <div class=\"col-sm-10\">"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"ADMIN\" id=\"role1\" name=\"role\">Admin</label>"
+"          <label class=\"checkbox-inline\"><input type=\"radio\" value=\"USER\" id=\"role2\" name=\"role\">User</label>"
+"          <p class=\"text-danger\">Role is mandatory</p>"
+"        </div>"
+"      </div>"
+""
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/user/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Add user\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+-
+> POST /user/validate
+< HTTP 302
+< Content-Language: en
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Location: /user/list
+""
+]

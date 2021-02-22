@@ -1,0 +1,433 @@
+com.poseidon.app.http.controller.CurvePointControllerTest.add=[
+-
+> GET /curvePoint/add
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+""
+"  <div class=\"row\">"
+"    <h2>Add New Curve Point</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/curvePoint/validate\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"curveId\" class=\"col-sm-2 control-label\">CurveId</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"curveId\" placeholder=\"CurveId\" class=\"col-4\" name=\"curveId\" value=\"\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"term\" class=\"col-sm-2 control-label\">Term</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"term\" placeholder=\"Term\" class=\"col-4\" name=\"term\" value=\"\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"value\" class=\"col-sm-2 control-label\">Value</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"value\" placeholder=\"Value\" class=\"col-4\" name=\"value\" value=\"\">"
+"          "
+"        </div>"
+"      </div>"
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/curvePoint/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Add curve point\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+]
+
+
+com.poseidon.app.http.controller.CurvePointControllerTest.delete=[
+-
+> GET /curvePoint/delete/1
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <title>Spring Boot</title>"
+"</head>"
+"<body>"
+"<h3>Not Found Exception</h3>"
+"<div>"
+"  Logged in user: <b class=\"user\"> test-username </b>"
+"  <form action=\"/app-logout\" method=\"POST\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"    <input type=\"submit\" value=\"Logout\"/>"
+"  </form>"
+"</div>"
+"<p class=\"error\">Entity not found.</p>"
+"</body>"
+"</html>"
+-
+> GET /curvePoint/delete/3517
+< HTTP 302
+< Content-Language: en
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Location: /curvePoint/list
+""
+]
+
+
+com.poseidon.app.http.controller.CurvePointControllerTest.list=[
+-
+> GET /curvePoint/list
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+"  <div class=\"row\">"
+"    <div class=\"col-6\">"
+"      <a href=\"/bidList/list\">Bid List</a>&nbsp;|&nbsp;"
+"      <a href=\"/curvePoint/list\">Curve Points</a>&nbsp;|&nbsp;"
+"      <a href=\"/rating/list\">Ratings</a>&nbsp;|&nbsp;"
+"      <a href=\"/trade/list\">Trade</a>&nbsp;|&nbsp;"
+"      <a href=\"/ruleName/list\">Rule</a>"
+"    </div>"
+"    <div class=\"col-6 text-right\">"
+"      Logged in user: <b class=\"user\"> test-username </b>"
+"      <form action=\"/app-logout\" method=\"POST\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"        <input type=\"submit\" value=\"Logout\"/>"
+"      </form>"
+"    </div>"
+"  </div>"
+"  <div class=\"row\"><h2>Curve Point List</h2></div>"
+"  <div class=\"row\">"
+"    <a href=\"/curvePoint/add\" class=\"btn btn-primary btn-sm\">Add New</a>"
+"    <table class=\"table table-bordered\">"
+"      <thead>"
+"      <tr>"
+"        <th>Id</th>"
+"        <th>CurveId</th>"
+"        <th>Term</th>"
+"        <th>Value</th>"
+"        <th>Action</th>"
+"      </tr>"
+"      </thead>"
+"      <tbody>"
+"      <tr>"
+"        <td>1</td>"
+"        <td>2</td>"
+"        <td>3.0</td>"
+"        <td>4.0</td>"
+"        <td style=\"width: 15%\" class=\"text-center\">"
+"          <a href=\"/curvePoint/update/1\">Edit</a>&nbsp;|&nbsp;"
+"          <a href=\"/curvePoint/delete/1\">Delete</a>"
+"        </td>"
+"      </tr>"
+"      <tr>"
+"        <td>3517</td>"
+"        <td>484607</td>"
+"        <td>4.8974702</td>"
+"        <td>1.712767</td>"
+"        <td style=\"width: 15%\" class=\"text-center\">"
+"          <a href=\"/curvePoint/update/3517\">Edit</a>&nbsp;|&nbsp;"
+"          <a href=\"/curvePoint/delete/3517\">Delete</a>"
+"        </td>"
+"      </tr>"
+"      </tbody>"
+"    </table>"
+"  </div>"
+"</div>"
+"</body>"
+"</html>"
+]
+
+
+com.poseidon.app.http.controller.CurvePointControllerTest.showUpdate=[
+-
+> GET /curvePoint/update/1
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <title>Spring Boot</title>"
+"</head>"
+"<body>"
+"<h3>Not Found Exception</h3>"
+"<div>"
+"  Logged in user: <b class=\"user\"> test-username </b>"
+"  <form action=\"/app-logout\" method=\"POST\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"    <input type=\"submit\" value=\"Logout\"/>"
+"  </form>"
+"</div>"
+"<p class=\"error\">Entity not found.</p>"
+"</body>"
+"</html>"
+-
+> GET /curvePoint/update/3517
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+"  <div class=\"row\">"
+"    <h2>Update CurvePoint</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/curvePoint/update/3517\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"curveId\" class=\"col-sm-2 control-label\">CurveId</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"curveId\" placeholder=\"CurveId\" class=\"col-4\" name=\"curveId\" value=\"484607\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"term\" class=\"col-sm-2 control-label\">Term</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"term\" placeholder=\"Term\" class=\"col-4\" name=\"term\" value=\"4.8974702\">"
+"          "
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"value\" class=\"col-sm-2 control-label\">Value</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"value\" placeholder=\"Value\" class=\"col-4\" name=\"value\" value=\"1.712767\">"
+"          "
+"        </div>"
+"      </div>"
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/curvePoint/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Update curve point\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+]
+
+
+com.poseidon.app.http.controller.CurvePointControllerTest.update=[
+-
+> POST /curvePoint/update/1
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+"  <div class=\"row\">"
+"    <h2>Update CurvePoint</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/curvePoint/update/1\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"curveId\" class=\"col-sm-2 control-label\">CurveId</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"curveId\" placeholder=\"CurveId\" class=\"col-4\" name=\"curveId\" value=\"\">"
+"          <p class=\"text-danger\">CurveId is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"term\" class=\"col-sm-2 control-label\">Term</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"term\" placeholder=\"Term\" class=\"col-4\" name=\"term\" value=\"\">"
+"          <p class=\"text-danger\">Term is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"value\" class=\"col-sm-2 control-label\">Value</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"value\" placeholder=\"Value\" class=\"col-4\" name=\"value\" value=\"\">"
+"          <p class=\"text-danger\">Value is mandatory</p>"
+"        </div>"
+"      </div>"
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/curvePoint/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Update curve point\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+-
+> POST /curvePoint/update/1
+< HTTP 302
+< Content-Language: en
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Location: /curvePoint/list
+""
+]
+
+
+com.poseidon.app.http.controller.CurvePointControllerTest.validate=[
+-
+> POST /curvePoint/validate
+< HTTP 200
+< Content-Language: en
+< Content-Type: text/html;charset=UTF-8
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+"<!DOCTYPE html>"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">"
+"<head>"
+"  <meta charset=\"utf-8\"/>"
+"  <title>Home</title>"
+"  <link rel=\"stylesheet\" href=\"../../css/bootstrap.min.css\">"
+"</head>"
+"<body>"
+"<div class=\"container\">"
+""
+"  <div class=\"row\">"
+"    <h2>Add New Curve Point</h2>"
+"  </div>"
+""
+"  <div class=\"row\">"
+"    <form action=\"/curvePoint/validate\" method=\"post\" class=\"form-horizontal\" style=\"width: 100%\"><input type=\"hidden\" name=\"_csrf\" value=\"12345678-903d-4d4e-8890-3e46ad33ce00\"/>"
+"      <div class=\"form-group\">"
+"        <label for=\"curveId\" class=\"col-sm-2 control-label\">CurveId</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"curveId\" placeholder=\"CurveId\" class=\"col-4\" name=\"curveId\" value=\"\">"
+"          <p class=\"text-danger\">CurveId is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"term\" class=\"col-sm-2 control-label\">Term</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"term\" placeholder=\"Term\" class=\"col-4\" name=\"term\" value=\"\">"
+"          <p class=\"text-danger\">Term is mandatory</p>"
+"        </div>"
+"      </div>"
+"      <div class=\"form-group\">"
+"        <label for=\"value\" class=\"col-sm-2 control-label\">Value</label>"
+"        <div class=\"col-sm-10\">"
+"          <input type=\"text\" id=\"value\" placeholder=\"Value\" class=\"col-4\" name=\"value\" value=\"\">"
+"          <p class=\"text-danger\">Value is mandatory</p>"
+"        </div>"
+"      </div>"
+""
+"      <div class=\"form-group\">"
+"        <div class=\"col-sm-12\">"
+"          <a class=\"btn btn-danger btn-sm\" href=\"/curvePoint/list\">Cancel</a>"
+"          <input class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Add curve point\">"
+"        </div>"
+"      </div>"
+""
+"    </form>"
+"  </div>"
+""
+"</div>"
+"</body>"
+"</html>"
+-
+> POST /curvePoint/validate
+< HTTP 302
+< Content-Language: en
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Location: /curvePoint/list
+""
+]

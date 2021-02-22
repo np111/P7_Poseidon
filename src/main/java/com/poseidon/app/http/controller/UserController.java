@@ -69,19 +69,19 @@ public class UserController {
         return "redirect:/user/list";
     }
 
-    private User filterIn(User user) {
+    User filterIn(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return user;
     }
 
-    private User filterOut(User user) {
+    User filterOut(User user) {
         if (user.getPassword() != null) {
             user.setPassword("");
         }
         return user;
     }
 
-    private List<User> filterOut(List<User> ret) {
+    List<User> filterOut(List<User> ret) {
         if (ret != null) {
             ret.forEach(this::filterOut);
         }

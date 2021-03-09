@@ -5,7 +5,9 @@ investors.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your
+local machine for development and testing purposes. See deployment for notes on
+how to deploy the project on a live system.
 
 ### Prerequisites
 
@@ -17,21 +19,29 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Running App
 
-Start the database and seed it with:
+Start the database:
+
 ```bash
 ./dev.sh up -d
-./dev.sh db-seed
 ```
 
 Then compile and run the app:
+
 ```bash
 mvn package
 java -jar target/poseidon-app.jar
 ```
 
+Then you can optionally seed the database with tests data:
+
+```bash
+./dev.sh db-seed
+```
+
 ### Testing
 
 ```bash
+./dev.sh up -d
 mvn verify
 ```
 
